@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6 col-md-6 sol-sm-12" style="padding-top: 10%; color: white; padding-bottom: 20%;">
+            <div class="text-center" style="padding-bottom: 2%;">
+                <h1>View Product</h1>
+            </div>
+            <br>
+            <table class="table table-dark">
+                <tr>
+                    <td>Name</td>
+                    <td>{{productData['p_name']}}</td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>{{productData['p_description']}}</td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>{{productData['p_price']}}</td>
+                </tr>
+            </table>
+            <br>
+            <button class="btn btn-warning" (click)="navigation('')">Go Back</button>
+        </div>
+    </div>
+</div>

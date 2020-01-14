@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="text-center" style="margin-bottom: 3%; color: white; padding-top: 5%;">
+            <h1>Manage Products</h1>
+        </div>
+        <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+            <button class="btn btn-success" (click)="getNavigation('create', '')">Add New Product</button>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+            <table #productsTable class="table table-dark display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody style="color: black !important;">
+                    <tr *ngFor="let product of products; let i =index;">
+                        <td>{{i + 1}}</td>
+                        <td>{{product.p_name}}</td>
+                        <td style="width: 50%;">{{product.p_description}}</td>
+                        <td>$ {{product.p_price}}</td>
+                        <td>
+                            <button style="margin-right: 2%;" type="button" class="btn btn-success" (click)="getNavigation('view', product.p_id)">View</button>
+                            <button style="margin-right: 2%;" type="button" class="btn btn-warning" (click)="getNavigation('update', product.p_id)">Edit</button>
+                            <button type="button" class="btn btn-danger" (click)="deleteProduct(product.p_id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

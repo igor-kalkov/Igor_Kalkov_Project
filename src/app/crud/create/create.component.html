@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6 col-md-6 sol-sm-12" style="padding-top: 10%; color: white; padding-bottom: 20%;">
+            <div class="text-center" style="margin-bottom: 2%;">
+                <h1>Add New Product</h1>
+            </div>
+            <form [formGroup]="productForm" (ngSubmit)="saveProduct(productForm.value)">
+                <div class="form-group">
+                    <label>Name</label>
+                    <div class="alert alert-danger" role="alert" *ngIf="!productForm.controls['name'].valid && (productForm.controls['name'].touched)">
+                        <div [hidden]="!productForm.controls['name'].errors.required">
+                            Name is required.
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Enter Name" formControlName="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <div class="alert alert-danger" role="alert" *ngIf="!productForm.controls['desc'].valid && (productForm.controls['desc'].touched)">
+                        <div [hidden]="!productForm.controls['desc'].errors.required">
+                            Description is required.
+                        </div>
+                        <div [hidden]="!productForm.controls['desc'].errors.minlength">
+                            Description must be have 10 character length.
+                        </div>
+                        <div [hidden]="!productForm.controls['desc'].errors.maxlength">
+                            Description must be have 1000 character length.
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Description" formControlName="desc" required>
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <div class="alert alert-danger" role="alert" *ngIf="!productForm.controls['price'].valid && (productForm.controls['price'].touched)">
+                        <div [hidden]="!productForm.controls['price'].errors.required">
+                            Price is required.
+                        </div>
+                    </div>
+                    <input type="number" class="form-control" placeholder="price" formControlName="price" required>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!productForm.valid">Add</button>
+                <button class="btn btn-secondary" style="margin-left: 2%;" (click)="navigation('')">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
